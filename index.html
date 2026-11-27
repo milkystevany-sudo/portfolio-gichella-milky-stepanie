@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gichella Milky Stepanie — Portofolio DKV</title>
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            lilac: {
+              DEFAULT: '#8063A8',
+              dark: '#674B8E',
+              light: '#E9DEF5',
+              soft: '#F4EEFB',
+            },
+            pastelPink: {
+              DEFAULT: '#F6DCE8',
+              soft: '#FBF0F5',
+            },
+            cream: {
+              DEFAULT: '#FFFAF4',
+              warm: '#FFF5EA',
+            }
+          },
+          boxShadow: {
+            'soft': '0 10px 30px -5px rgba(128, 99, 168, 0.12)',
+            'hover': '0 18px 40px -8px rgba(128, 99, 168, 0.22)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #FFFAF4;
+      color: #362C42;
+      overflow-x: hidden;
+    }
+
+    /* Animasi mengambang halus untuk dekorasi */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(3deg); }
+    }
+    @keyframes pulseSparkle {
+      0%, 100% { opacity: 0.45; transform: scale(0.95); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    .animate-float {
+      animation: floatSlow 6s ease-in-out infinite;
+    }
+    .animate-float-delayed {
+      animation: floatSlow 7s ease-in-out 2s infinite;
+    }
+    .animate-sparkle {
+      animation: pulseSparkle 3.5s ease-in-out infinite;
+    }
+
+    /* Efek Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Dekorasi garis bawah estetik */
+    .lilac-underline {
+      position: relative;
+      display: inline-block;
+    }
+    .lilac-underline::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 2px;
+      width: 100%;
+      height: 10px;
+      background-color: #E9DEF5;
+      z-index: -1;
+      border-radius: 999px;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFFAF4;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D3BFE9;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #8063A8;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-lilac-light selection:text-lilac-dark relative">
+
+  <!-- Latar Belakang Dekorasi Blob Pastel Lembut -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10" aria-hidden="true">
+    <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-lilac-light/70 blur-3xl"></div>
+    <div class="absolute top-1/3 -right-24 w-80 h-80 rounded-full bg-pastelPink/65 blur-3xl"></div>
+    <div class="absolute bottom-10 left-1/4 w-96 h-96 rounded-full bg-lilac-light/50 blur-3xl"></div>
+  </div>
+
+  <!-- ==================== 1. NAVBAR ==================== -->
+  <header class="sticky top-0 z-40 w-full bg-cream/80 backdrop-blur-md border-b border-lilac-light/80 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 h-18 py-4 flex items-center justify-between">
+      <!-- Logo / Nama -->
+      <a href="#beranda" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-2xl bg-gradient-to-tr from-lilac to-pastelPink flex items-center justify-center text-white font-semibold text-sm shadow-sm group-hover:scale-105 transition-transform">
+          G
+        </span>
+        <span class="font-bold text-lg sm:text-xl tracking-tight text-lilac-dark">
+          Gichella<span class="text-lilac">.</span>
+        </span>
+      </a>
+
+      <!-- Menu Navigasi Desktop -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-[#524563]">
+        <a href="#beranda" class="nav-link hover:text-lilac transition-colors py-1">Beranda</a>
+        <a href="#tentang-saya" class="nav-link hover:text-lilac transition-colors py-1">Tentang Saya</a>
+        <a href="#karya" class="nav-link hover:text-lilac transition-colors py-1">Karya</a>
+        <a href="#minat" class="nav-link hover:text-lilac transition-colors py-1">Minat</a>
+        <a href="#kontak" class="px-5 py-2.5 rounded-full bg-lilac text-white hover:bg-lilac-dark shadow-sm hover:shadow transition-all">
+          Kontak
+        </a>
+      </nav>
+
+      <!-- Tombol Menu Mobile (Hamburger) -->
+      <button id="mobile-menu-btn" type="button" aria-label="Buka Menu" class="md:hidden p-2.5 rounded-2xl bg-lilac-soft text-lilac-dark hover:bg-lilac-light transition-colors">
+        <svg id="icon-hamburger" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Dropdown Menu Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden bg-cream/95 backdrop-blur-lg border-b border-lilac-light px-6 pt-3 pb-6 space-y-2 shadow-soft">
+      <a href="#beranda" class="mobile-nav-link block px-4 py-3 rounded-2xl text-sm font-medium text-[#524563] hover:bg-lilac-soft hover:text-lilac-dark transition-colors">Beranda</a>
+      <a href="#tentang-saya" class="mobile-nav-link block px-4 py-3 rounded-2xl text-sm font-medium text-[#524563] hover:bg-lilac-soft hover:text-lilac-dark transition-colors">Tentang Saya</a>
+      <a href="#karya" class="mobile-nav-link block px-4 py-3 rounded-2xl text-sm font-medium text-[#524563] hover:bg-lilac-soft hover:text-lilac-dark transition-colors">Karya</a>
+      <a href="#minat" class="mobile-nav-link block px-4 py-3 rounded-2xl text-sm font-medium text-[#524563] hover:bg-lilac-soft hover:text-lilac-dark transition-colors">Minat</a>
+      <a href="#kontak" class="mobile-nav-link block px-4 py-3 rounded-2xl text-sm font-semibold text-center bg-lilac text-white hover:bg-lilac-dark transition-colors mt-2">Kontak</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== 2. HERO / BERANDA ==================== -->
+    <section id="beranda" class="relative pt-14 pb-20 md:pt-20 md:pb-28 px-5 sm:px-8">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+        
+        <!-- Kolom Teks Hero -->
+        <div class="lg:col-span-7 text-center lg:text-left space-y-6 reveal active">
+          <!-- Badge Kecil -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lilac-light/85 border border-lilac/20 text-lilac-dark text-xs sm:text-sm font-medium shadow-sm">
+            <svg class="w-4 h-4 text-lilac animate-sparkle" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 1L14.5 9.5L23 12L14.5 14.5L12 23L9.5 14.5L1 12L9.5 9.5L12 1Z"/>
+            </svg>
+            <span>Student | Creative Explorer</span>
+          </div>
+
+          <!-- Nama & Judul Utama -->
+          <div class="space-y-3">
+            <p class="text-base sm:text-lg font-semibold text-lilac tracking-wide">
+              Gichella Milky Stepanie
+            </p>
+            <h1 class="text-3xl sm:text-5xl lg:text-[3.25rem] font-bold text-[#2D233A] leading-tight">
+              Welcome to my <span class="lilac-underline text-lilac-dark">Portofolio</span>
+            </h1>
+          </div>
+
+          <!-- Kalimat Deskripsi Hero -->
+          <p class="text-base sm:text-lg text-[#5E526E] max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            Sedang mengenal diri, belajar hal baru, dan menuangkan ide melalui kreativitas.
+          </p>
+
+          <!-- Tombol CTA -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#karya" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-lilac text-white font-medium text-sm sm:text-base shadow-soft hover:bg-lilac-dark hover:-translate-y-0.5 hover:shadow-hover transition-all flex items-center justify-center gap-2">
+              <span>Lihat Karya</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+            <a href="#tentang-saya" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white text-lilac-dark border-2 border-lilac-light font-medium text-sm sm:text-base hover:bg-pastelPink-soft hover:border-pastelPink hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+              <span>Kenali Saya</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Kolom Foto Profil Estetik -->
+        <div class="lg:col-span-5 flex flex-col items-center reveal active">
+          <div class="relative w-72 sm:w-80">
+            <!-- Dekorasi Kartu Belakang Pastel -->
+            <div class="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-tr from-lilac-light via-pastelPink to-lilac-light rotate-3 opacity-90"></div>
+            <div class="absolute -inset-2 rounded-[2.5rem] bg-white/70 -rotate-2"></div>
+
+            <!-- Bingkai Utama Foto Profil -->
+            <div class="relative bg-white p-3.5 rounded-[2.25rem] shadow-soft border border-lilac-light">
+              <div class="relative w-full aspect-[4/5] rounded-[1.75rem] overflow-hidden bg-gradient-to-b from-lilac-soft to-pastelPink-soft flex items-center justify-center group">
+                
+                <!-- Ilustrasi Avatar Default (Tampil jika belum unggah foto) -->
+                <div id="default-avatar-illustration" class="w-full h-full flex flex-col items-center justify-center p-6 text-center select-none">
+                  <svg viewBox="0 0 240 280" class="w-48 h-56 drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Latar Lingkaran Pastel -->
+                    <circle cx="120" cy="125" r="88" fill="#E9DEF5" />
+                    <circle cx="165" cy="70" r="22" fill="#F6DCE8" />
+                    <!-- Bintang kecil -->
+                    <path d="M55 68L58 76L66 79L58 82L55 90L52 82L44 79L52 76L55 68Z" fill="#8063A8" fill-opacity="0.45"/>
+                    <path d="M185 150L187 156L193 158L187 160L185 166L183 160L177 158L183 156L185 150Z" fill="#8063A8" fill-opacity="0.45"/>
+                    <!-- Rambut Belakang -->
+                    <path d="M72 125C72 86 92 64 120 64C148 64 168 86 168 125V185C168 195 156 202 145 202H95C84 202 72 195 72 185V125Z" fill="#4B3B5E"/>
+                    <!-- Bahu & Baju Pastel -->
+                    <path d="M62 248C66 212 90 196 120 196C150 196 174 212 178 248H62Z" fill="#8063A8"/>
+                    <path d="M98 196L120 216L142 196" fill="#FFFAF4"/>
+                    <!-- Leher -->
+                    <rect x="110" y="170" width="20" height="30" rx="10" fill="#FBE4D8"/>
+                    <!-- Wajah -->
+                    <rect x="86" y="92" width="68" height="84" rx="34" fill="#FDECE2"/>
+                    <!-- Poni Rambut -->
+                    <path d="M84 122C84 94 100 76 120 76C140 76 156 94 156 122C146 108 134 104 120 106C106 104 94 108 84 122Z" fill="#4B3B5E"/>
+                    <!-- Mata & Senyum Lembut -->
+                    <circle cx="105" cy="134" r="3.5" fill="#3B2D4A"/>
+                    <circle cx="135" cy="134" r="3.5" fill="#3B2D4A"/>
+                    <ellipse cx="97" cy="144" rx="6" ry="3.5" fill="#F6DCE8"/>
+                    <ellipse cx="143" cy="144" rx="6" ry="3.5" fill="#F6DCE8"/>
+                    <path d="M113 151C116 155 124 155 127 151" stroke="#8063A8" stroke-width="2.5" stroke-linecap="round"/>
+                    <!-- Jepit Rambut Lilac -->
+                    <rect x="142" y="102" width="12" height="5" rx="2.5" transform="rotate(20 142 102)" fill="#F6DCE8"/>
+                  </svg>
+                  <span class="text-xs font-medium text-lilac-dark/80 bg-white/80 px-3 py-1 rounded-full">
+                    Siswi DKV • Creative Explorer
+                  </span>
+                </div>
+
+                <!-- Gambar Profil Unggahan Pengguna -->
+                <img id="profile-photo-img" src="" alt="Foto Profil Gichella Milky Stepanie" class="hidden w-full h-full object-cover object-center transition-all duration-300" />
+
+                <!-- Overlay Tombol Ganti Foto saat Hover -->
+                <label for="profile-upload-input" class="absolute inset-0 bg-lilac-dark/45 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white cursor-pointer p-4 text-center">
+                  <div class="w-11 h-11 rounded-full bg-white/20 flex items-center justify-center mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <span class="text-xs font-semibold">Ganti Foto Profil</span>
+                  <span class="text-[11px] text-white/85 mt-0.5">Pilih dari perangkat</span>
+                </label>
+              </div>
+              <input id="profile-upload-input" type="file" accept="image/*" class="hidden" />
+            </div>
+
+            <!-- Badge Mengambang Dekoratif -->
+            <div class="absolute -bottom-4 -left-4 bg-white px-4 py-2.5 rounded-2xl shadow-soft border border-lilac-light flex items-center gap-2.5 animate-float">
+              <span class="w-8 h-8 rounded-xl bg-pastelPink flex items-center justify-center text-lilac-dark">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                </svg>
+              </span>
+              <div>
+                <p class="text-[11px] text-[#7B6E8C] leading-none">Jurusan</p>
+                <p class="text-xs font-bold text-lilac-dark mt-0.5">Desain Komunikasi Visual</p>
+              </div>
+            </div>
+
+            <!-- Dekorasi Sparkle Kanan Atas -->
+            <div class="absolute -top-5 -right-3 text-lilac animate-float-delayed pointer-events-none">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 1L14.5 9.5L23 12L14.5 14.5L12 23L9.5 14.5L1 12L9.5 9.5L12 1Z"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Kontrol Kustomisasi Foto Profil (Posisi & Reset) -->
+          <div id="profile-controls" class="mt-7 flex flex-wrap items-center justify-center gap-2 text-xs">
+            <label for="profile-upload-input" class="cursor-pointer px-3.5 py-1.5 rounded-full bg-white border border-lilac-light text-lilac-dark hover:bg-lilac-soft transition-colors font-medium shadow-sm">
+              + Unggah Foto
+            </label>
+            <div id="photo-position-controls" class="hidden items-center gap-1.5 bg-white px-2.5 py-1 rounded-full border border-lilac-light shadow-sm">
+              <span class="text-[#7B6E8C] text-[11px]">Posisi:</span>
+              <button type="button" onclick="setPhotoPosition('object-top')" class="px-2 py-0.5 rounded-full hover:bg-lilac-light text-lilac-dark font-medium">Atas</button>
+              <button type="button" onclick="setPhotoPosition('object-center')" class="px-2 py-0.5 rounded-full hover:bg-lilac-light text-lilac-dark font-medium">Tengah</button>
+              <button type="button" onclick="resetProfilePhoto()" class="px-2 py-0.5 rounded-full text-rose-500 hover:bg-rose-50 font-medium">Reset</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 3. ABOUT ME (TENTANG SAYA) ==================== -->
+    <section id="tentang-saya" class="py-20 md:py-24 px-5 sm:px-8 bg-white/60 border-y border-lilac-light/60">
+      <div class="max-w-5xl mx-auto">
+        <!-- Header Section -->
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-pastelPink text-lilac-dark text-xs font-semibold tracking-wider uppercase mb-3">
+            About Me
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-bold text-[#2D233A]">
+            Mengenal <span class="lilac-underline text-lilac-dark">Tentang Saya</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <!-- Narasi Cerita Diri -->
+          <div class="lg:col-span-7 bg-cream rounded-3xl p-7 sm:p-9 shadow-soft border border-lilac-light/80 flex flex-col justify-center space-y-4 text-[#4A3F59] text-sm sm:text-base leading-relaxed reveal">
+            <p>
+              Saya adalah seorang siswi SMK yang sedang mengenal diri dan mengembangkan kemampuan. Saya tertarik mencoba hal-hal baru, terutama dalam bidang teknologi, kreativitas, dan desain.
+            </p>
+            <p>
+              Melalui berbagai proyek dan pengalaman belajar, saya ingin terus mengembangkan kemampuan, menemukan hal yang saya sukai, dan menjadi pribadi yang lebih mandiri.
+            </p>
+            <p class="font-medium text-lilac-dark">
+              Saya percaya bahwa setiap proses belajar adalah kesempatan untuk mengenal diri sendiri dan menciptakan sesuatu yang bermakna.
+            </p>
+          </div>
+
+          <!-- Grid Informasi Singkat -->
+          <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 reveal">
+            <!-- Item 1: Nama -->
+            <div class="bg-white rounded-2xl p-5 shadow-soft border border-lilac-light/70 flex items-start gap-4 hover:-translate-y-0.5 transition-transform">
+              <div class="w-10 h-10 rounded-xl bg-lilac-light text-lilac-dark flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-[#857896]">Nama</p>
+                <p class="text-sm sm:text-base font-semibold text-[#2D233A] mt-0.5">Gichella Milky Stepanie</p>
+              </div>
+            </div>
+
+            <!-- Item 2: Pendidikan -->
+            <div class="bg-white rounded-2xl p-5 shadow-soft border border-lilac-light/70 flex items-start gap-4 hover:-translate-y-0.5 transition-transform">
+              <div class="w-10 h-10 rounded-xl bg-pastelPink text-lilac-dark flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-[#857896]">Pendidikan</p>
+                <p class="text-sm sm:text-base font-semibold text-[#2D233A] mt-0.5">SMK, jurusan DKV</p>
+              </div>
+            </div>
+
+            <!-- Item 3: Status -->
+            <div class="bg-white rounded-2xl p-5 shadow-soft border border-lilac-light/70 flex items-start gap-4 hover:-translate-y-0.5 transition-transform">
+              <div class="w-10 h-10 rounded-xl bg-lilac-light text-lilac-dark flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-[#857896]">Status</p>
+                <p class="text-sm sm:text-base font-semibold text-[#2D233A] mt-0.5">Student</p>
+              </div>
+            </div>
+
+            <!-- Item 4: Bidang yang sedang dipelajari -->
+            <div class="bg-white rounded-2xl p-5 shadow-soft border border-lilac-light/70 flex items-start gap-4 hover:-translate-y-0.5 transition-transform">
+              <div class="w-10 h-10 rounded-xl bg-pastelPink text-lilac-dark flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-[#857896]">Bidang yang sedang dipelajari</p>
+                <p class="text-sm sm:text-base font-semibold text-[#2D233A] mt-0.5">Desain, teknologi, dan kreativitas digital</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. MY WORKS / GALERI KARYA ==================== -->
+    <section id="karya" class="py-20 md:py-28 px-5 sm:px-8">
+      <div class="max-w-6xl mx-auto">
+        <!-- Header Section -->
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-lilac-light text-lilac-dark text-xs font-semibold tracking-wider uppercase mb-3">
+            My Works
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-bold text-[#2D233A]">
+            Galeri <span class="lilac-underline text-lilac-dark">Karya & Proyek</span>
+          </h2>
+          <p class="text-sm sm:text-base text-[#665978] mt-3">
+            Klik pada gambar karya untuk melihat tampilan ukuran penuh, atau unggah gambar karyamu sendiri untuk pratinjau langsung.
+          </p>
+        </div>
+
+        <!-- Grid 4 Kartu Proyek (Layout Creative Portfolio / Pinterest) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <!-- KARYA 1: 3D House -->
+          <article class="group bg-white rounded-3xl overflow-hidden shadow-soft border border-lilac-light/80 hover:shadow-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col reveal">
+            <!-- Container Gambar Karya -->
+            <div class="relative aspect-[16/11] bg-gradient-to-br from-[#EDE3F8] via-[#F7EEF9] to-[#F6DCE8] overflow-hidden cursor-pointer" onclick="openLightbox(0)">
+              <img id="work-img-0" src="" alt="3D House" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              
+              <!-- Overlay Zoom Lightbox -->
+              <div class="absolute inset-0 bg-lilac-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="px-4 py-2 rounded-full bg-white/95 text-lilac-dark text-xs font-semibold shadow-md flex items-center gap-1.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                  </svg>
+                  Lihat Ukuran Penuh
+                </span>
+              </div>
+
+              <!-- Tombol Ganti Gambar Karya Lokal -->
+              <label for="work-upload-0" onclick="event.stopPropagation()" title="Ganti gambar karya" class="absolute top-3 right-3 z-10 px-3 py-1.5 rounded-full bg-white/90 hover:bg-white text-lilac-dark text-[11px] font-medium shadow-sm cursor-pointer backdrop-blur-sm transition-all">
+                Ganti Gambar
+              </label>
+              <input id="work-upload-0" type="file" accept="image/*" class="hidden" onchange="handleWorkImageUpload(event, 0)" />
+            </div>
+
+            <!-- Konten Kartu -->
+            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <span class="inline-block px-3 py-1 rounded-full bg-lilac-soft text-lilac-dark text-xs font-semibold mb-3">
+                  3D Design | Blender
+                </span>
+                <h3 class="text-xl font-bold text-[#2D233A] group-hover:text-lilac transition-colors">
+                  3D House
+                </h3>
+                <p class="text-sm text-[#5E526E] mt-2 leading-relaxed">
+                  Proyek membuat model rumah 3D menggunakan Blender sebagai bagian dari proses belajar desain tiga dimensi.
+                </p>
+              </div>
+              <div class="pt-2 flex items-center justify-between border-t border-lilac-light/50 text-xs text-lilac font-medium">
+                <span>Karya 01</span>
+                <button type="button" onclick="openLightbox(0)" class="hover:underline flex items-center gap-1">
+                  Perbesar Gambar →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- KARYA 2: Tourism Poster -->
+          <article class="group bg-white rounded-3xl overflow-hidden shadow-soft border border-lilac-light/80 hover:shadow-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col reveal">
+            <div class="relative aspect-[16/11] bg-gradient-to-br from-[#F6DCE8] via-[#F9ECF4] to-[#E9DEF5] overflow-hidden cursor-pointer" onclick="openLightbox(1)">
+              <img id="work-img-1" src="" alt="Tourism Poster" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              
+              <div class="absolute inset-0 bg-lilac-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="px-4 py-2 rounded-full bg-white/95 text-lilac-dark text-xs font-semibold shadow-md flex items-center gap-1.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                  </svg>
+                  Lihat Ukuran Penuh
+                </span>
+              </div>
+
+              <label for="work-upload-1" onclick="event.stopPropagation()" title="Ganti gambar karya" class="absolute top-3 right-3 z-10 px-3 py-1.5 rounded-full bg-white/90 hover:bg-white text-lilac-dark text-[11px] font-medium shadow-sm cursor-pointer backdrop-blur-sm transition-all">
+                Ganti Gambar
+              </label>
+              <input id="work-upload-1" type="file" accept="image/*" class="hidden" onchange="handleWorkImageUpload(event, 1)" />
+            </div>
+
+            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <span class="inline-block px-3 py-1 rounded-full bg-pastelPink-soft text-lilac-dark text-xs font-semibold mb-3">
+                  Graphic Design | Photoshop
+                </span>
+                <h3 class="text-xl font-bold text-[#2D233A] group-hover:text-lilac transition-colors">
+                  Tourism Poster
+                </h3>
+                <p class="text-sm text-[#5E526E] mt-2 leading-relaxed">
+                  Poster bertema wisata yang dibuat untuk melatih kreativitas dalam menggabungkan gambar, warna, dan tipografi.
+                </p>
+              </div>
+              <div class="pt-2 flex items-center justify-between border-t border-lilac-light/50 text-xs text-lilac font-medium">
+                <span>Karya 02</span>
+                <button type="button" onclick="openLightbox(1)" class="hover:underline flex items-center gap-1">
+                  Perbesar Gambar →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- KARYA 3: Educational Cards -->
+          <article class="group bg-white rounded-3xl overflow-hidden shadow-soft border border-lilac-light/80 hover:shadow-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col reveal">
+            <div class="relative aspect-[16/11] bg-gradient-to-br from-[#F3E9FC] via-[#FFF6FA] to-[#E9DEF5] overflow-hidden cursor-pointer" onclick="openLightbox(2)">
+              <img id="work-img-2" src="" alt="Educational Cards" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              
+              <div class="absolute inset-0 bg-lilac-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="px-4 py-2 rounded-full bg-white/95 text-lilac-dark text-xs font-semibold shadow-md flex items-center gap-1.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                  </svg>
+                  Lihat Ukuran Penuh
+                </span>
+              </div>
+
+              <label for="work-upload-2" onclick="event.stopPropagation()" title="Ganti gambar karya" class="absolute top-3 right-3 z-10 px-3 py-1.5 rounded-full bg-white/90 hover:bg-white text-lilac-dark text-[11px] font-medium shadow-sm cursor-pointer backdrop-blur-sm transition-all">
+                Ganti Gambar
+              </label>
+              <input id="work-upload-2" type="file" accept="image/*" class="hidden" onchange="handleWorkImageUpload(event, 2)" />
+            </div>
+
+            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <span class="inline-block px-3 py-1 rounded-full bg-lilac-soft text-lilac-dark text-xs font-semibold mb-3">
+                  Visual Design | Photoshop
+                </span>
+                <h3 class="text-xl font-bold text-[#2D233A] group-hover:text-lilac transition-colors">
+                  Educational Cards
+                </h3>
+                <p class="text-sm text-[#5E526E] mt-2 leading-relaxed">
+                  Kartu edukasi yang berisi gambar dan penjelasan sederhana, dirancang agar informasi mudah dipahami.
+                </p>
+              </div>
+              <div class="pt-2 flex items-center justify-between border-t border-lilac-light/50 text-xs text-lilac font-medium">
+                <span>Karya 03</span>
+                <button type="button" onclick="openLightbox(2)" class="hover:underline flex items-center gap-1">
+                  Perbesar Gambar →
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- KARYA 4: Personal Website -->
+          <article class="group bg-white rounded-3xl overflow-hidden shadow-soft border border-lilac-light/80 hover:shadow-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col reveal">
+            <div class="relative aspect-[16/11] bg-gradient-to-br from-[#E9DEF5] via-[#F6DCE8] to-[#FFFAF4] overflow-hidden cursor-pointer" onclick="openLightbox(3)">
+              <img id="work-img-3" src="" alt="Personal Website" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              
+              <div class="absolute inset-0 bg-lilac-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="px-4 py-2 rounded-full bg-white/95 text-lilac-dark text-xs font-semibold shadow-md flex items-center gap-1.5">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                  </svg>
+                  Lihat Ukuran Penuh
+                </span>
+              </div>
+
+              <label for="work-upload-3" onclick="event.stopPropagation()" title="Ganti gambar karya" class="absolute top-3 right-3 z-10 px-3 py-1.5 rounded-full bg-white/90 hover:bg-white text-lilac-dark text-[11px] font-medium shadow-sm cursor-pointer backdrop-blur-sm transition-all">
+                Ganti Gambar
+              </label>
+              <input id="work-upload-3" type="file" accept="image/*" class="hidden" onchange="handleWorkImageUpload(event, 3)" />
+            </div>
+
+            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <span class="inline-block px-3 py-1 rounded-full bg-pastelPink-soft text-lilac-dark text-xs font-semibold mb-3">
+                  Web Design | AI-assisted
+                </span>
+                <h3 class="text-xl font-bold text-[#2D233A] group-hover:text-lilac transition-colors">
+                  Personal Website
+                </h3>
+                <p class="text-sm text-[#5E526E] mt-2 leading-relaxed">
+                  Proyek website pribadi yang dibuat dengan bantuan AI sebagai sarana belajar dan mengenal dunia pengembangan web.
+                </p>
+              </div>
+              <div class="pt-2 flex items-center justify-between border-t border-lilac-light/50 text-xs text-lilac font-medium">
+                <span>Karya 04</span>
+                <button type="button" onclick="openLightbox(3)" class="hover:underline flex items-center gap-1">
+                  Perbesar Gambar →
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. MY INTERESTS (MINAT) ==================== -->
+    <section id="minat" class="py-20 md:py-24 px-5 sm:px-8 bg-white/60 border-y border-lilac-light/60">
+      <div class="max-w-6xl mx-auto">
+        <!-- Header Section -->
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-pastelPink text-lilac-dark text-xs font-semibold tracking-wider uppercase mb-3">
+            My Interests
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-bold text-[#2D233A]">
+            Hal yang Sedang <span class="lilac-underline text-lilac-dark">Saya Minati</span>
+          </h2>
+          <p class="text-sm sm:text-base text-[#665978] mt-3">
+            Berbagai hal baru yang sedang saya eksplorasi dan pelajari dengan penuh rasa ingin tahu.
+          </p>
+        </div>
+
+        <!-- 4 Kartu Minat -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Minat 1: Mandarin -->
+          <div class="bg-cream rounded-3xl p-7 shadow-soft border border-lilac-light/80 hover:-translate-y-1.5 hover:border-lilac/40 transition-all duration-300 flex flex-col reveal">
+            <div class="w-12 h-12 rounded-2xl bg-lilac-light text-lilac-dark flex items-center justify-center mb-5 font-bold text-lg shadow-sm">
+              汉
+            </div>
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-lilac mb-1">Sedang Belajar</span>
+            <h3 class="text-lg font-bold text-[#2D233A] mb-2.5">Mandarin</h3>
+            <p class="text-sm text-[#5E526E] leading-relaxed">
+              Saya sedang belajar bahasa Mandarin dari dasar dan ingin bisa menggunakannya dalam percakapan sehari-hari.
+            </p>
+          </div>
+
+          <!-- Minat 2: Dance -->
+          <div class="bg-cream rounded-3xl p-7 shadow-soft border border-lilac-light/80 hover:-translate-y-1.5 hover:border-lilac/40 transition-all duration-300 flex flex-col reveal">
+            <div class="w-12 h-12 rounded-2xl bg-pastelPink text-lilac-dark flex items-center justify-center mb-5 shadow-sm">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-lilac mb-1">Eksplorasi Gerak</span>
+            <h3 class="text-lg font-bold text-[#2D233A] mb-2.5">Dance</h3>
+            <p class="text-sm text-[#5E526E] leading-relaxed">
+              Saya pernah mengikuti kegiatan dance dan ingin terus belajar serta mengembangkan koordinasi gerakan.
+            </p>
+          </div>
+
+          <!-- Minat 3: Music -->
+          <div class="bg-cream rounded-3xl p-7 shadow-soft border border-lilac-light/80 hover:-translate-y-1.5 hover:border-lilac/40 transition-all duration-300 flex flex-col reveal">
+            <div class="w-12 h-12 rounded-2xl bg-lilac-light text-lilac-dark flex items-center justify-center mb-5 shadow-sm">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+              </svg>
+            </div>
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-lilac mb-1">Inspirasi Harian</span>
+            <h3 class="text-lg font-bold text-[#2D233A] mb-2.5">Music</h3>
+            <p class="text-sm text-[#5E526E] leading-relaxed">
+              Saya menyukai musik, terutama BTS atau musik K-Pop.
+            </p>
+          </div>
+
+          <!-- Minat 4: Creative Exploration -->
+          <div class="bg-cream rounded-3xl p-7 shadow-soft border border-lilac-light/80 hover:-translate-y-1.5 hover:border-lilac/40 transition-all duration-300 flex flex-col reveal">
+            <div class="w-12 h-12 rounded-2xl bg-pastelPink text-lilac-dark flex items-center justify-center mb-5 shadow-sm">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-lilac mb-1">Rasa Ingin Tahu</span>
+            <h3 class="text-lg font-bold text-[#2D233A] mb-2.5">Creative Exploration</h3>
+            <p class="text-sm text-[#5E526E] leading-relaxed">
+              Saya senang mencoba hal baru di bidang desain, teknologi, dan kreativitas digital.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. MY LEARNING JOURNEY ==================== -->
+    <section class="py-16 md:py-20 px-5 sm:px-8">
+      <div class="max-w-4xl mx-auto reveal">
+        <div class="relative rounded-[2.25rem] bg-gradient-to-r from-lilac-light via-pastelPink-soft to-lilac-light p-8 sm:p-12 text-center shadow-soft border border-white overflow-hidden">
+          <!-- Dekorasi Sudut -->
+          <div class="absolute top-4 left-6 text-lilac/40 pointer-events-none">
+            <svg class="w-7 h-7 animate-sparkle" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 1L14.5 9.5L23 12L14.5 14.5L12 23L9.5 14.5L1 12L9.5 9.5L12 1Z"/>
+            </svg>
+          </div>
+          <div class="absolute bottom-4 right-6 text-lilac/40 pointer-events-none">
+            <svg class="w-7 h-7 animate-sparkle" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 1L14.5 9.5L23 12L14.5 14.5L12 23L9.5 14.5L1 12L9.5 9.5L12 1Z"/>
+            </svg>
+          </div>
+
+          <span class="inline-block px-3.5 py-1 rounded-full bg-white/85 text-lilac-dark text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm">
+            My Learning Journey
+          </span>
+          <h2 class="text-xl sm:text-3xl font-bold text-[#2D233A] mb-4">
+            Bertumbuh Sedikit Demi Sedikit
+          </h2>
+          <p class="text-sm sm:text-base md:text-lg text-[#4A3F59] max-w-2xl mx-auto leading-relaxed">
+            "Perjalanan saya masih panjang. Saya sedang belajar mengenali kemampuan, mencoba hal baru, dan mengembangkan diri sedikit demi sedikit. Saya ingin terus bertumbuh melalui pengalaman dan karya yang saya buat."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 7. CONTACT (KONTAK) ==================== -->
+    <section id="kontak" class="py-20 md:py-24 px-5 sm:px-8">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-lilac-light text-lilac-dark text-xs font-semibold tracking-wider uppercase mb-3">
+            Contact
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-bold text-[#2D233A]">
+            Mari <span class="lilac-underline text-lilac-dark">Terhubung</span>
+          </h2>
+          <p class="text-sm sm:text-base text-[#665978] mt-3">
+            Jangan ragu untuk menyapa, berdiskusi seputar desain, atau berbagi pengalaman belajar bersama!
+          </p>
+        </div>
+
+        <!-- 3 Kartu Tombol Kontak Aktif -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+          
+          <!-- Tombol Instagram -->
+          <a href="https://www.instagram.com/milky_stevany03?gwpx=b3Q2ZTM0Y3N1d2tt"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="group bg-white rounded-3xl p-7 shadow-soft border border-lilac-light/80 hover:border-lilac hover:-translate-y-1.5 hover:shadow-hover transition-all duration-300 flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-pastelPink to-lilac-light text-lilac-dark flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-width="2"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2" stroke-linecap="round"></line>
+              </svg>
+            </div>
+            <h3 class="font-bold text-lg text-[#2D233A] mb-1">Instagram</h3>
+            <p class="text-xs text-[#7B6E8C] break-all mb-4">https://www.instagram.com/milky_stevany03?gwpx=b3Q2ZTM0Y3N1d2tt</p>
+            <span class="mt-auto inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-lilac-soft text-lilac-dark text-xs font-semibold group-hover:bg-lilac group-hover:text-white transition-colors">
+              Buka Instagram
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </span>
+          </a>
+
+          <!-- Tombol WhatsApp -->
+          <a href="https://wa.me/6289636132995"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="group bg-white rounded-3xl p-7 shadow-soft border border-lilac-light/80 hover:border-lilac hover:-translate-y-1.5 hover:shadow-hover transition-all duration-300 flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-lilac-light to-pastelPink text-lilac-dark flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-lg text-[#2D233A] mb-1">WhatsApp</h3>
+            <p class="text-xs text-[#7B6E8C] break-all mb-4">089636132995</p>
+            <span class="mt-auto inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-lilac-soft text-lilac-dark text-xs font-semibold group-hover:bg-lilac group-hover:text-white transition-colors">
+              Chat WhatsApp
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </span>
+          </a>
+
+          <!-- Tombol Email -->
+          <a href="mailto:milkystevany@gmail.com"
+             class="group bg-white rounded-3xl p-7 shadow-soft border border-lilac-light/80 hover:border-lilac hover:-translate-y-1.5 hover:shadow-hover transition-all duration-300 flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-pastelPink to-lilac-light text-lilac-dark flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-lg text-[#2D233A] mb-1">Email</h3>
+            <p class="text-xs text-[#7B6E8C] break-all mb-4">milkystevany@gmail.com</p>
+            <span class="mt-auto inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-lilac-soft text-lilac-dark text-xs font-semibold group-hover:bg-lilac group-hover:text-white transition-colors">
+              Kirim Email
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 8. FOOTER ==================== -->
+  <footer class="relative bg-lilac-light/55 border-t border-lilac-light pt-12 pb-10 px-5 sm:px-8 overflow-hidden">
+    <!-- Dekorasi Kecil Bertema Lilac -->
+    <div class="max-w-5xl mx-auto text-center space-y-5 relative z-10">
+      <!-- Ikon Sparkle & Garis Pastel Lilac -->
+      <div class="flex items-center justify-center gap-3 text-lilac">
+        <span class="w-8 h-[1.5px] bg-lilac/35 rounded-full"></span>
+        <svg class="w-5 h-5 animate-sparkle" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 1L14.5 9.5L23 12L14.5 14.5L12 23L9.5 14.5L1 12L9.5 9.5L12 1Z"/>
+        </svg>
+        <span class="w-2 h-2 rounded-full bg-pastelPink border border-lilac/40"></span>
+        <svg class="w-4 h-4 text-lilac/75" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 1L14.5 9.5L23 12L14.5 14.5L12 23L9.5 14.5L1 12L9.5 9.5L12 1Z"/>
+        </svg>
+        <span class="w-8 h-[1.5px] bg-lilac/35 rounded-full"></span>
+      </div>
+
+      <!-- Hak Cipta -->
+      <p class="text-sm font-medium text-lilac-dark">
+        © Gichella Milky Stepanie. Made with creativity and curiosity.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL LIGHTBOX GALERI KARYA ==================== -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-[#23192E]/80 backdrop-blur-md p-4 sm:p-8 flex items-center justify-center" onclick="closeLightbox(event)">
+    <div class="relative bg-white rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl border border-lilac-light animate-[fadeIn_0.25s_ease-out]" onclick="event.stopPropagation()">
+      <!-- Tombol Tutup -->
+      <button type="button" onclick="closeLightbox()" aria-label="Tutup pratinjau" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 hover:bg-lilac text-lilac-dark hover:text-white flex items-center justify-center shadow-md transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Gambar Ukuran Penuh -->
+      <div class="bg-lilac-soft flex items-center justify-center max-h-[65vh] overflow-hidden">
+        <img id="lightbox-img" src="" alt="Preview Karya" class="w-full h-auto max-h-[65vh] object-contain" />
+      </div>
+
+      <!-- Keterangan Karya di Lightbox -->
+      <div class="p-6 sm:p-7 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <span id="lightbox-category" class="inline-block px-3 py-1 rounded-full bg-lilac-light text-lilac-dark text-xs font-semibold mb-2"></span>
+          <h3 id="lightbox-title" class="text-xl font-bold text-[#2D233A]"></h3>
+          <p id="lightbox-desc" class="text-sm text-[#5E526E] mt-1"></p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <button type="button" onclick="navigateLightbox(-1)" class="px-4 py-2 rounded-full bg-lilac-soft hover:bg-lilac-light text-lilac-dark text-xs font-semibold transition-colors">
+            ← Sebelumnya
+          </button>
+          <button type="button" onclick="navigateLightbox(1)" class="px-4 py-2 rounded-full bg-lilac hover:bg-lilac-dark text-white text-xs font-semibold transition-colors">
+            Berikutnya →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT INTERAKTIVITAS ==================== -->
+  <script>
+    // 1. Ilustrasi SVG Default untuk 4 Karya (Dikonversi ke Data URI SVG agar tajam dan tanpa tautan gambar eksternal)
+    const defaultWorkSVGs = [
+      // Karya 1: 3D House (Blender)
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="800" height="550">
+        <defs>
+          <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#E9DEF5"/>
+            <stop offset="100%" stop-color="#F6DCE8"/>
+          </linearGradient>
+        </defs>
+        <rect width="800" height="550" fill="url(#bg1)"/>
+        <!-- Grid Lantai 3D Isometrik -->
+        <ellipse cx="400" cy="430" rx="260" ry="55" fill="#D5C2EC" opacity="0.55"/>
+        <!-- Dinding Kiri Rumah 3D -->
+        <polygon points="240,260 400,320 400,435 240,375" fill="#FFFAF4"/>
+        <!-- Dinding Kanan Rumah 3D -->
+        <polygon points="400,320 560,260 560,375 400,435" fill="#EFE6FA"/>
+        <!-- Atap Kiri -->
+        <polygon points="215,265 400,155 400,325 215,265" fill="#8063A8"/>
+        <polygon points="215,265 320,175 400,325" fill="#9578BD"/>
+        <!-- Atap Kanan -->
+        <polygon points="400,155 585,265 400,325" fill="#674B8E"/>
+        <!-- Cerobong Asap -->
+        <polygon points="475,180 505,195 505,235 475,220" fill="#F6DCE8"/>
+        <!-- Pintu & Jendela -->
+        <polygon points="305,335 345,350 345,414 305,399" fill="#8063A8"/>
+        <polygon points="445,325 495,307 495,352 445,370" fill="#F6DCE8" stroke="#8063A8" stroke-width="4"/>
+        <!-- Pohon Kecil Pastel -->
+        <rect x="180" y="340" width="12" height="45" rx="6" fill="#8063A8"/>
+        <circle cx="186" cy="322" r="32" fill="#F6DCE8"/>
+        <circle cx="172" cy="332" r="22" fill="#E9DEF5"/>
+        <!-- Label Sudut Blender -->
+        <rect x="44" y="40" width="175" height="38" rx="19" fill="#FFFFFF" opacity="0.85"/>
+        <text x="131" y="64" font-family="Poppins, sans-serif" font-size="14" font-weight="600" fill="#8063A8" text-anchor="middle">3D Viewport • Blender</text>
+      </svg>`,
+
+      // Karya 2: Tourism Poster (Photoshop)
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="800" height="550">
+        <defs>
+          <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F6DCE8"/>
+            <stop offset="100%" stop-color="#E9DEF5"/>
+          </linearGradient>
+        </defs>
+        <rect width="800" height="550" fill="url(#bg2)"/>
+        <!-- Bingkai Poster Vertikal -->
+        <rect x="265" y="45" width="270" height="460" rx="24" fill="#FFFAF4" stroke="#8063A8" stroke-width="4"/>
+        <!-- Langit & Matahari di dalam Poster -->
+        <rect x="285" y="65" width="230" height="270" rx="16" fill="#E9DEF5"/>
+        <circle cx="445" cy="125" r="34" fill="#F6DCE8"/>
+        <!-- Pegunungan Pastel -->
+        <polygon points="285,335 365,205 450,335" fill="#9B7EC2"/>
+        <polygon points="365,335 445,225 515,335" fill="#8063A8"/>
+        <!-- Awan -->
+        <rect x="310" y="115" width="65" height="18" rx="9" fill="#FFFFFF" opacity="0.85"/>
+        <!-- Tipografi Poster -->
+        <text x="400" y="378" font-family="Poppins, sans-serif" font-size="22" font-weight="700" fill="#2D233A" text-anchor="middle">EXPLORE NATURE</text>
+        <text x="400" y="405" font-family="Poppins, sans-serif" font-size="12" font-weight="500" fill="#8063A8" text-anchor="middle">WONDERFUL DESTINATION</text>
+        <rect x="335" y="430" width="130" height="32" rx="16" fill="#8063A8"/>
+        <text x="400" y="451" font-family="Poppins, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF" text-anchor="middle">VISIT NOW</text>
+        <!-- Elemen Dekoratif Palet Warna -->
+        <circle cx="150" cy="210" r="24" fill="#8063A8"/>
+        <circle cx="150" cy="270" r="24" fill="#F6DCE8" stroke="#8063A8" stroke-width="2"/>
+        <circle cx="150" cy="330" r="24" fill="#FFFAF4" stroke="#8063A8" stroke-width="2"/>
+      </svg>`,
+
+      // Karya 3: Educational Cards (Photoshop)
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="800" height="550">
+        <rect width="800" height="550" fill="#F4EEFB"/>
+        <!-- Kartu Kiri -->
+        <g transform="rotate(-7 270 280)">
+          <rect x="145" y="110" width="240" height="340" rx="24" fill="#FFFFFF" stroke="#D7C4EE" stroke-width="3"/>
+          <rect x="170" y="135" width="190" height="150" rx="16" fill="#F6DCE8"/>
+          <circle cx="265" cy="210" r="42" fill="#8063A8" opacity="0.85"/>
+          <rect x="170" y="310" width="140" height="16" rx="8" fill="#8063A8"/>
+          <rect x="170" y="340" width="180" height="10" rx="5" fill="#D5C2EC"/>
+          <rect x="170" y="360" width="155" height="10" rx="5" fill="#D5C2EC"/>
+        </g>
+        <!-- Kartu Kanan -->
+        <g transform="rotate(6 520 280)">
+          <rect x="410" y="105" width="245" height="345" rx="24" fill="#FFFAF4" stroke="#8063A8" stroke-width="3.5"/>
+          <rect x="435" y="130" width="195" height="155" rx="16" fill="#E9DEF5"/>
+          <polygon points="532,165 572,245 492,245" fill="#8063A8"/>
+          <circle cx="565" cy="175" r="16" fill="#F6DCE8"/>
+          <rect x="435" y="308" width="150" height="16" rx="8" fill="#2D233A"/>
+          <rect x="435" y="338" width="185" height="10" rx="5" fill="#BFA8DC"/>
+          <rect x="435" y="358" width="160" height="10" rx="5" fill="#BFA8DC"/>
+          <rect x="435" y="390" width="95" height="28" rx="14" fill="#F6DCE8"/>
+          <text x="482" y="408" font-family="Poppins, sans-serif" font-size="11" font-weight="600" fill="#8063A8" text-anchor="middle">INFO CARD</text>
+        </g>
+      </svg>`,
+
+      // Karya 4: Personal Website (Web Design | AI-assisted)
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="800" height="550">
+        <defs>
+          <linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#E9DEF5"/>
+            <stop offset="50%" stop-color="#FFFAF4"/>
+            <stop offset="100%" stop-color="#F6DCE8"/>
+          </linearGradient>
+        </defs>
+        <rect width="800" height="550" fill="url(#bg4)"/>
+        <!-- Window Browser Mockup -->
+        <rect x="115" y="75" width="570" height="400" rx="24" fill="#FFFFFF" stroke="#8063A8" stroke-width="3.5"/>
+        <!-- Top Bar Browser -->
+        <path d="M115 99C115 85.7 125.7 75 139 75H661C674.3 75 685 85.7 685 99V122H115V99Z" fill="#F4EEFB"/>
+        <circle cx="145" cy="98" r="7" fill="#F6DCE8" stroke="#8063A8" stroke-width="1.5"/>
+        <circle cx="168" cy="98" r="7" fill="#E9DEF5" stroke="#8063A8" stroke-width="1.5"/>
+        <circle cx="191" cy="98" r="7" fill="#8063A8"/>
+        <rect x="235" y="88" width="320" height="20" rx="10" fill="#FFFFFF"/>
+        <!-- Konten Mockup Website -->
+        <rect x="155" y="155" width="240" height="22" rx="11" fill="#8063A8"/>
+        <rect x="155" y="192" width="290" height="12" rx="6" fill="#D5C2EC"/>
+        <rect x="155" y="214" width="250" height="12" rx="6" fill="#D5C2EC"/>
+        <rect x="155" y="246" width="125" height="36" rx="18" fill="#8063A8"/>
+        <rect x="292" y="246" width="125" height="36" rx="18" fill="#F6DCE8"/>
+        <!-- Avatar Card Kanan -->
+        <rect x="475" y="150" width="170" height="190" rx="22" fill="#F4EEFB" stroke="#D5C2EC" stroke-width="2"/>
+        <circle cx="560" cy="225" r="42" fill="#F6DCE8"/>
+        <rect x="515" y="285" width="90" height="14" rx="7" fill="#8063A8"/>
+        <!-- Kartu Bawah -->
+        <rect x="155" y="365" width="150" height="75" rx="16" fill="#F4EEFB"/>
+        <rect x="325" y="365" width="150" height="75" rx="16" fill="#FBF0F5"/>
+        <rect x="495" y="365" width="150" height="75" rx="16" fill="#F4EEFB"/>
+      </svg>`
+    ];
+
+    const worksData = [
+      {
+        title: "3D House",
+        category: "3D Design | Blender",
+        description: "Proyek membuat model rumah 3D menggunakan Blender sebagai bagian dari proses belajar desain tiga dimensi."
+      },
+      {
+        title: "Tourism Poster",
+        category: "Graphic Design | Photoshop",
+        description: "Poster bertema wisata yang dibuat untuk melatih kreativitas dalam menggabungkan gambar, warna, dan tipografi."
+      },
+      {
+        title: "Educational Cards",
+        category: "Visual Design | Photoshop",
+        description: "Kartu edukasi yang berisi gambar dan penjelasan sederhana, dirancang agar informasi mudah dipahami."
+      },
+      {
+        title: "Personal Website",
+        category: "Web Design | AI-assisted",
+        description: "Proyek website pribadi yang dibuat dengan bantuan AI sebagai sarana belajar dan mengenal dunia pengembangan web."
+      }
+    ];
+
+    // Helper mengubah SVG string ke Data URL
+    function svgToDataUrl(svgString) {
+      return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svgString.trim());
+    }
+
+    // Inisialisasi gambar karya (cek localStorage jika pengguna sudah mengunggah gambar kustom)
+    function initWorksImages() {
+      worksData.forEach((_, idx) => {
+        const imgEl = document.getElementById(`work-img-${idx}`);
+        const savedWorkImg = localStorage.getItem(`gichella_work_img_${idx}`);
+        imgEl.src = savedWorkImg ? savedWorkImg : svgToDataUrl(defaultWorkSVGs[idx]);
+      });
+    }
+
+    // Upload gambar karya lokal untuk pratinjau
+    function handleWorkImageUpload(event, index) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const dataUrl = e.target.result;
+        document.getElementById(`work-img-${index}`).src = dataUrl;
+        try {
+          localStorage.setItem(`gichella_work_img_${index}`, dataUrl);
+        } catch (err) {
+          // Abaikan jika ukuran file melebihi kuota localStorage
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // 2. Fitur Unggah & Kustomisasi Foto Profil
+    const profileUploadInput = document.getElementById('profile-upload-input');
+    const profilePhotoImg = document.getElementById('profile-photo-img');
+    const defaultAvatarIllus = document.getElementById('default-avatar-illustration');
+    const photoPositionControls = document.getElementById('photo-position-controls');
+
+    function applyProfilePhoto(dataUrl, posClass = 'object-center') {
+      profilePhotoImg.src = dataUrl;
+      profilePhotoImg.classList.remove('hidden', 'object-top', 'object-center', 'object-bottom');
+      profilePhotoImg.classList.add(posClass);
+      defaultAvatarIllus.classList.add('hidden');
+      photoPositionControls.classList.remove('hidden');
+      photoPositionControls.classList.add('flex');
+    }
+
+    function setPhotoPosition(posClass) {
+      profilePhotoImg.classList.remove('object-top', 'object-center', 'object-bottom');
+      profilePhotoImg.classList.add(posClass);
+      try {
+        localStorage.setItem('gichella_profile_pos', posClass);
+      } catch (e) {}
+    }
+
+    function resetProfilePhoto() {
+      profilePhotoImg.src = '';
+      profilePhotoImg.classList.add('hidden');
+      defaultAvatarIllus.classList.remove('hidden');
+      photoPositionControls.classList.add('hidden');
+      photoPositionControls.classList.remove('flex');
+      profileUploadInput.value = '';
+      try {
+        localStorage.removeItem('gichella_profile_photo');
+        localStorage.removeItem('gichella_profile_pos');
+      } catch (e) {}
+    }
+
+    profileUploadInput.addEventListener('change', function (event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const dataUrl = e.target.result;
+        applyProfilePhoto(dataUrl, 'object-center');
+        try {
+          localStorage.setItem('gichella_profile_photo', dataUrl);
+        } catch (err) {}
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Muat foto profil tersimpan jika ada
+    function initProfilePhoto() {
+      try {
+        const savedPhoto = localStorage.getItem('gichella_profile_photo');
+        const savedPos = localStorage.getItem('gichella_profile_pos') || 'object-center';
+        if (savedPhoto) {
+          applyProfilePhoto(savedPhoto, savedPos);
+        }
+      } catch (e) {}
+    }
+
+    // 3. Lightbox Galeri Karya
+    let currentLightboxIndex = 0;
+
+    function openLightbox(index) {
+      currentLightboxIndex = index;
+      updateLightboxContent();
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function updateLightboxContent() {
+      const work = worksData[currentLightboxIndex];
+      const currentImgSrc = document.getElementById(`work-img-${currentLightboxIndex}`).src;
+      document.getElementById('lightbox-img').src = currentImgSrc;
+      document.getElementById('lightbox-category').textContent = work.category;
+      document.getElementById('lightbox-title').textContent = work.title;
+      document.getElementById('lightbox-desc').textContent = work.description;
+    }
+
+    function navigateLightbox(step) {
+      currentLightboxIndex = (currentLightboxIndex + step + worksData.length) % worksData.length;
+      updateLightboxContent();
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Tutup lightbox dengan tombol Escape atau navigasi panah keyboard
+    document.addEventListener('keydown', function (e) {
+      const modal = document.getElementById('lightbox-modal');
+      if (modal.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') navigateLightbox(1);
+      if (e.key === 'ArrowLeft') navigateLightbox(-1);
+    });
+
+    // 4. Navbar Responsif Mobile
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconHamburger = document.getElementById('icon-hamburger');
+    const iconClose = document.getElementById('icon-close');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        iconHamburger.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+        iconHamburger.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      }
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        iconHamburger.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+
+    // 5. Scroll Reveal Animation dengan IntersectionObserver
+    function initScrollReveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      reveals.forEach(el => observer.observe(el));
+    }
+
+    // Jalankan inisialisasi saat halaman dimuat
+    window.addEventListener('DOMContentLoaded', () => {
+      initWorksImages();
+      initProfilePhoto();
+      initScrollReveal();
+    });
+  </script>
+</body>
+</html>
